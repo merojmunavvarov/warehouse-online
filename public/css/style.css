@@ -1,0 +1,14 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:sans-serif;background:#f4f6fa;color:#1f2937}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#111827;color:#e5e7eb;padding:20px 0}
+.sidebar nav a{display:block;padding:12px 20px;color:#cbd5e1;text-decoration:none}
+.content{flex:1;padding:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:#fff;padding:20px;border-radius:10px}
+.table{width:100%;background:#fff;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid #eee}
+.login-page{display:flex;align-items:center;justify-content:center;height:100vh;background:#111827}
+.login-form{background:#fff;padding:36px;border-radius:12px;width:340px;display:flex;flex-direction:column;gap:12px}
+.login-form input,.login-form button{padding:12px;border-radius:8px;border:1px solid #ccc}
+.login-form button{background:#2563eb;color:#fff;border:none;cursor:pointer}

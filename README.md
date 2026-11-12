@@ -137,6 +137,18 @@ warehouse-online/
 10–14	Разработка Frontend и Backend	Исходный код приложения	lab-10–lab-14	Выполнено
 15	Тестирование системы	docs/15-test-cases.md	lab-15	Запланировано
 16	Развёртывание и публикация системы	docs/16-deploy.md	lab-16	Запланировано
+
+
+## 🧩 UML Моделирование
+
+### Диаграмма прецедентов (Use Case)
+![Use Case](docs/04-behavior/use-case.png)
+
+### Диаграмма классов (Class Diagram)
+![Class Diagram](docs/05-structure/class-diagram.png)
+
+
+
 🗄 Схема базы данных (ER-диаграмма)
 
 

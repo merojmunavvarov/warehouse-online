@@ -54,7 +54,7 @@ include __DIR__ . '/../includes/header.php';
                     <td><?= e($r['name']) ?></td>
                     <td><?= e($r['email']) ?></td>
                     <td><span class="tag" style="<?= $r['role'] == 'admin' ? 'background:#e0e7ff; color:#3730a3;' : 'background:#f3f4f6;' ?>"><?= e($r['role']) ?></span></td>
-                    <td>
+                    <td style="display:flex; gap:6px;">
                         <?php if ($r['id'] != current_user()['id']): ?>
                             <!-- Кнопка сброса пароля -->
                             <form method="post" style="display:inline;" onsubmit="return confirm('Сбросить пароль сотрудника на 12345678?')">
@@ -72,7 +72,8 @@ include __DIR__ . '/../includes/header.php';
                                 <button class="btn btn-sm btn-danger" title="Удалить">🗑</button>
                             </form>
                         <?php else: ?>
-                            <span style="color:#9ca3af; font-size:13px;">Это вы</span>
+                            <!-- Кнопка перехода в свой профиль -->
+                            <a href="profile.php" class="btn btn-sm" style="background:#2563eb; color:white; border:none; text-decoration:none; display:inline-flex; align-items:center; gap:4px;" title="Перейти в мой профиль">👤 Мой профиль</a>
                         <?php endif; ?>
                     </td>
                 </tr>

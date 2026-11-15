@@ -1,0 +1,71 @@
+@startuml
+title Warehouse Online — ER Diagram
+hide circle
+skinparam linetype ortho
+
+entity "users" {
+  *id : INT <<PK>>
+  --
+  name : VARCHAR(100)
+  email : VARCHAR(150) <<UK>>
+  password : VARCHAR(255)
+  role : ENUM('admin', 'storekeeper')
+  created_at : TIMESTAMP
+}
+
+entity "categories" {
+  *id : INT <<PK>>
+  --
+  name : VARCHAR(100) <<UK>>
+  description : VARCHAR(255)
+}
+
+entity "suppliers" {
+  *id : INT <<PK>>
+  --
+  name : VARCHAR(150)
+  phone : VARCHAR(30)
+  email : VARCHAR(150)
+  address : VARCHAR(255)
+}
+
+entity "products" {
+  *id : INT <<PK>>
+  --
+  category_id : INT <<FK>>
+  name : VARCHAR(200)
+  sku : VARCHAR(50) <<UK>>
+  unit : VARCHAR(20)
+  price : DECIMAL(10,2)
+  min_stock : INT
+}
+
+entity "stock_in" {
+  *id : INT <<PK>>
+  --
+  product_id : INT <<FK>>
+  supplier_id : INT <<FK>>
+  qty : INT
+  price : DECIMAL(10,2)
+  note : VARCHAR(255)
+  user_id : INT <<FK>>
+  created_at : TIMESTAMP
+}
+
+entity "stock_out" {
+  *id : INT <<PK>>
+  --
+  product_id : INT <<FK>>
+  qty : INT
+  reason : VARCHAR(200)
+  user_id : INT <<FK>>
+  created_at : TIMESTAMP
+}
+
+categories ||--o{ products : "1:N (SET NULL)"
+suppliers ||--o{ stock_in : "1:N (SET NULL)"
+products ||--o{ stock_in : "1:N (CASCADE)"
+products ||--o{ stock_out : "1:N (CASCADE)"
+users ||--o{ stock_in : "1:N (SET NULL)"
+users ||--o{ stock_out : "1:N (SET NULL)"
+@enduml

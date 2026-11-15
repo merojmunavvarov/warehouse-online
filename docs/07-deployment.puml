@@ -1,0 +1,21 @@
+@startuml
+title Warehouse Online — Deployment Diagram
+skinparam shadowing false
+
+node "Компьютер пользователя" as UserPC {
+  artifact "Веб-браузер (Chrome, Firefox)" as Browser
+}
+
+node "Сервер (XAMPP / Хостинг)" as Server {
+  artifact "Веб-сервер Apache" as Apache
+  artifact "PHP 8 (Скрипты сайта)" as PHP
+}
+
+node "Сервер базы данных" as DBServer {
+  database "MySQL (warehouse_db)" as MySQL
+}
+
+Browser --> Apache : HTTP/HTTPS
+Apache --> PHP : FastCGI / Модуль
+PHP --> MySQL : SQL-запросы (PDO)
+@enduml
